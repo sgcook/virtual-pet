@@ -47,5 +47,41 @@ describe("constructor", () => {
         pet.growUp();
 
         expect(pet.fitness).toEqual(-3);
+    });
+
+    it("increases fitness by 4", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 4;
+        pet.walk();
+
+        expect(pet.fitness).toEqual(8);
+    });
+
+    it("increases fitness to a maximum of 10", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 8;
+        pet.walk();
+
+        expect(pet.fitness).toEqual(10);
+    });
+
+    it("decreases hunger by 3", () => {
+        const pet = new Pet("Fido");
+
+        pet.hunger = 3;
+        pet.feed();
+
+        expect(pet.hunger).toEqual(0);
+    });
+
+    it("decreases hunger to a minimum of 0", () => {
+        const pet = new Pet("Fido");
+
+        pet.hunger = 1;
+        pet.feed();
+
+        expect(pet.hunger).toEqual(0);
     })
 });
