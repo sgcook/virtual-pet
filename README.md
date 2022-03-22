@@ -1,5 +1,10 @@
 # JavaScript Pet
 
+## Learning objectives
+
+- feature testing in the Node REPL
+- writing unit tests
+- first time using module.exports + require
 - practice using prototypes and constructors
 
 ## Pets' features:
