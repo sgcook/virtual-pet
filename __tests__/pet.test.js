@@ -83,5 +83,42 @@ describe("constructor", () => {
         pet.feed();
 
         expect(pet.hunger).toEqual(0);
+    });
+
+    it("returns \"I need a walk \" if fitness is 3 or less", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 1;
+        pet.hunger = 6;
+
+        expect(pet.checkUp()).toBe("I need a walk");
+    });
+
+    it("returns \"I am hungry\" if hunger is 5 or more", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 4;
+        pet.hunger = 5;
+
+        expect(pet.checkUp()).toBe("I am hungry");
+    });
+
+    it("returns \"I am hungry AND I need a walk\" if fitness is 3 or less and hunger is 5 or more", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 1;
+        pet.hunger = 2;
+
+        expect(pet.checkUp()).toBe("I am hungry AND I need a walk");
+    });
+
+    it("returns \"I feel great\" if hunger is greater than 5 and fitness is greater than 3", () => {
+        const pet = new Pet("Fido");
+
+        pet.fitness = 4;
+        pet.hunger = 4;
+
+
+        expect(pet.checkUp()).toBe("I feel great!");
     })
 });

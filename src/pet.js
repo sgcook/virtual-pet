@@ -5,6 +5,8 @@ const HUNGER_INCREASE = 5;
 const FITNESS_DECREASE = 3;
 const AGE_INCREASE = 1;
 const HUNGER_DECREASE = 3;
+const HUNGER_ALERT = 5;
+const FITNESS_ALERT = 3;
 
 function Pet(name) {
     this.name = name;
@@ -32,6 +34,18 @@ Pet.prototype.feed = function() {
       this.hunger -= HUNGER_DECREASE;
     } else {
       this.hunger = INITIAL_VALUE;
+    }
+}
+
+Pet.prototype.checkUp = function() {
+    if(this.fitness <= FITNESS_ALERT && this.hunger <= HUNGER_ALERT) {
+        return "I am hungry AND I need a walk";
+    } else if(this.fitness <= FITNESS_ALERT) {
+        return "I need a walk";
+    } else if (this.hunger >= HUNGER_ALERT) {
+        return "I am hungry";
+    } else {
+        return "I feel great!";
     }
 }
 
