@@ -12,7 +12,7 @@ function Pet(name) {
   this.name = name;
   this.age = INITIAL_VALUE;
   this.hunger = INITIAL_VALUE;
-  this.fitness = INITIAL_VALUE;
+  this.fitness = MAXIMUM_FITNESS;
 }
 
 Pet.prototype = {
@@ -66,5 +66,13 @@ Pet.prototype.checkUp = function() {
     return "I feel great!";
   }
 }
+
+const parent = new Pet("Dave");
+
+parent.haveBaby = function (childName) {
+  this.childName = childName;
+  children = [Pet, {name: childName}];
+}
+
 
 module.exports = Pet;

@@ -20,9 +20,9 @@ describe("constructor", () => {
         expect(pet.hunger).toEqual(0);
     });
 
-    it("has an initial fitness of 0", () => {
+    it("has an initial fitness of 10", () => {
         const pet = new Pet("Fido");
-        expect(pet.fitness).toEqual(0);
+        expect(pet.fitness).toEqual(10);
     });
 });
 
@@ -46,9 +46,10 @@ describe("growUp", () => {
     it("decreases fitness by 3", () => {
         const pet = new Pet("Fido");
     
+        pet.fitness = 10;
         pet.growUp();
     
-        expect(pet.fitness).toEqual(-3);
+        expect(pet.fitness).toEqual(7);
     });
 
     it("throws an error if the pet is not alive", () => {
@@ -112,7 +113,7 @@ describe("feed", () => {
 
         pet.age = 30;
 
-        expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+        expect( () => pet.feed()).toThrow("Your pet is no longer alive :(");
     });
 });
 
@@ -195,6 +196,24 @@ describe("isAlive", () => {
     
         expect(pet.isAlive).toEqual(true);
     });
+
+describe("haveBaby", () => {
+    it("makes a parent instance", () => {
+        expect(new Pet("Dave")).toBeInstanceOf(Pet);
+    });
+
+    xit("call method on parent pet, pass child's name as argument", () => {
+        expect(parent.haveBaby(childName)).toBe(parent.haveBaby(childName));
+    });
+
+    it("parent pet's children property is an array, first element is an instance of Pet", () => {
+        const parent = new Pet("Dave");
+
+        parent.haveBaby("Amelia");
+
+        expect(parent.children).toEqual([ Pet {name: "Amelia", children: [] } ]);
+    }
+})
 });
 
 
