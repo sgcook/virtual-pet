@@ -197,13 +197,11 @@ describe("isAlive", () => {
         expect(pet.isAlive).toEqual(true);
     });
 
+});
+
 describe("haveBaby", () => {
     it("makes a parent instance", () => {
         expect(new Pet("Dave")).toBeInstanceOf(Pet);
-    });
-
-    xit("call method on parent pet, pass child's name as argument", () => {
-        expect(parent.haveBaby(childName)).toBe(parent.haveBaby(childName));
     });
 
     it("parent pet's children property is an array, first element is an instance of Pet", () => {
@@ -211,15 +209,6 @@ describe("haveBaby", () => {
 
         parent.haveBaby("Amelia");
 
-        expect(parent.children).toEqual([ Pet {name: "Amelia", children: [] } ]);
-    }
+        expect(parent.children).toEqual([ {name: "Amelia", age: 0, hunger: 0, fitness: 10, children: [] } ]);
+    });
 })
-});
-
-
-
-
-
-
-
-    
